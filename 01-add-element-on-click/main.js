@@ -18,6 +18,12 @@ let liNumber = 1;
 
 listBtn.addEventListener('click', () => {
   const li = document.createElement('li');
-  li.textContent = `item no ${liNumber++}`;
+  li.textContent = `${liNumber}`;
   ul.appendChild(li);
+
+  if (liNumber % 3 === 0) {
+    li.style.fontSize = '26px';
+  }
+
+  liNumber += 2;
 });
