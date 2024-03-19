@@ -1,3 +1,7 @@
+body {
+  font-family: Roboto, sans-serif;
+}
+
 body button {
   display: block;
   margin: 10px auto;
@@ -6,17 +10,18 @@ body button {
 div {
   height: 30px;
   width: 30px;
-  background-color: black;
+  background-color: grey;
   margin: 5px;
   float: left;
-  color: white;
+  color: orange;
   text-align: center;
   line-height: 30px;
+  border: 2px solid grey;
 }
 
 .circle {
   background-color: white;
   border-radius: 50%;
   color: black;
-  border: 2px solid black;
+  border: 2px solid orange;
 }
