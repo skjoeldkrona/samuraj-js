@@ -1,5 +1,13 @@
-console.log('error');
+const button = document.querySelector('button');
+const body = document.querySelector('body');
+let counter = 0;
 
-console.log('hey');
+button.addEventListener('click', () => {
+  const div = document.createElement('div');
+  div.textContent = ++counter;
+  body.appendChild(div);
 
-console.warn('yes');
+  if (counter % 5 === 0) {
+    div.className = 'circle';
+  }
+});
