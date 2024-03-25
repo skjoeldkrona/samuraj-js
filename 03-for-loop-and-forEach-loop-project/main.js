@@ -45,7 +45,8 @@ function createLiElems() {
     const li = document.createElement('li');
     li.textContent = `item no ${liOrder++}`;
     li.style.fontSize = `${size++}px`;
-    let ulList = document.querySelector('ul').appendChild(li);
+    const ulList = document.querySelector('ul');
+    ulList.appendChild(li);
   }
 }
 
