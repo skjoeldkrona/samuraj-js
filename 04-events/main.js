@@ -28,24 +28,58 @@
 // });
 
 // Alternative solution
-document.body.addEventListener('click', (e) => {
-  console.log(e.clientX, e.clientY);
-  const colour = getColour(e);
-  document.body.style.backgroundColor = colour;
+// document.body.addEventListener('click', (e) => {
+//   console.log(e.clientX, e.clientY);
+//   const colour = getColour(e);
+//   document.body.style.backgroundColor = colour;
+// });
+
+// function getColour(e) {
+//   if (e.clientX % 2 === 0) {
+//     if (e.clientY % 2 === 0) {
+//       return 'red';
+//     } else {
+//       return 'green';
+//     }
+//   } else {
+//     if (e.clientY % 2 === 0) {
+//       return 'green';
+//     } else {
+//       return 'blue';
+//     }
+//   }
+// }
+
+const div = document.querySelector('div');
+let divX = 0;
+let divY = 0;
+
+div.style.left = `${divX}px`;
+div.style.top = `${divY}px`;
+
+let insideDivX;
+let insideDivY;
+
+let drawActive = false;
+
+div.addEventListener('mousedown', (e) => {
+  drawActive = !drawActive;
+  div.style.backgroundColor = 'grey';
+  insideDivX = e.offsetX;
+  insideDivY = e.offsetY;
 });
 
-function getColour(e) {
-  if (e.clientX % 2 === 0) {
-    if (e.clientY % 2 === 0) {
-      return 'red';
-    } else {
-      return 'green';
-    }
-  } else {
-    if (e.clientY % 2 === 0) {
-      return 'green';
-    } else {
-      return 'blue';
-    }
+div.addEventListener('mousemove', (e) => {
+  if (drawActive) {
+    divX = e.clientX - insideDivX;
+    divY = e.clientY - insideDivY;
+
+    div.style.left = `${divX}px`;
+    div.style.top = `${divY}px`;
   }
-}
+});
+
+div.addEventListener('mouseup', () => {
+  div.style.backgroundColor = 'orange';
+  drawActive = !drawActive;
+});
